@@ -2,15 +2,15 @@ const API_URL = 'https://ruddy-mail.glitch.me/api/gacha';
 
 Vue.component('gif', {
   template: `
-    <figure v-show="value">
-      <img :src="value.url" alt="" />
+    <figure v-show="src">
+      <img :src="src" alt="" />
       <figcaption>
         GIFs by <a href="https://giphy.com/">GIPHY</a>
       </figcaption>
     </figure>
   `,
   props: [
-    'value'
+    'src'
   ],
 });
 
@@ -27,7 +27,7 @@ new Vue({
       // Axiosを使ってAPI呼び出し
       axios.get(API_URL)
         .then(response => {
-          this.result = response.data;
+          this.result = response.data.url;
         })
         .catch(error => {
           console.log(error);
