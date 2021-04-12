@@ -2,15 +2,16 @@ const API_URL = 'https://ruddy-mail.glitch.me/api/gacha';
 
 Vue.component('gif', {
   template: `
-    <figure v-show="$root.result != ''">
-      <img :src="$root.result" alt="" />
+    <figure v-show="url != ''">
+      <img :src="url" alt="" />
       <figcaption>
         GIFs by <a href="https://giphy.com/">GIPHY</a>
       </figcaption>
     </figure>
   `,
   props: [
-    'src'
+    'src',
+    'url'
   ],
 });
 
